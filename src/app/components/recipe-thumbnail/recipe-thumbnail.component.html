@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-horizontal">
+        <div class="image">
+            <img class="" width="250" height="200" src='{{recipe.imageURL}}' alt="image">
+        </div>
+        <div class="card-body">
+            <h4 class="card-title"> {{recipe.name}}</h4>
+            <div class="card-text">
+                <div>Prep: {{recipe.prep}}</div>
+                <div>Cook: {{recipe.cook}}</div>
+                <div>Total: {{recipe.total}}</div>
+                <div>Additional: {{recipe.additional}}</div>
+                <div>Servings: {{recipe.servings}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary float-right" [routerLink]="['/recipe', recipe.id]">View recipe</button>
+    </div>
+</div>

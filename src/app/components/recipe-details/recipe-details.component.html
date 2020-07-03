@@ -1,0 +1,56 @@
+<div class="page-container">
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="card">
+                <div class="card-header bg-success">
+                    <h2><strong>{{recipe.name}}</strong></h2>
+                </div>
+                <div class="row">
+                    <div class="col-5 p-3">
+                        <img class="card-img-top" width="500" height="300" src='{{recipe.imageURL}}'
+                            alt="Card image cap">
+                    </div>
+                    <div class="col-7 mt-3">
+                        <h5><strong>Prep:</strong> {{recipe.prep}}</h5>
+                        <h5><strong>Cook:</strong> {{recipe.cook}}</h5>
+                        <h5><strong>Total:</strong> {{recipe.total}}</h5>
+                        <h5><strong>Additional:</strong> {{recipe.additional}}</h5>
+                        <h5><strong>Servings:</strong> {{recipe.servings}}</h5>
+                        <h5><strong>Ingredients:</strong></h5>
+                        <ul>
+                            <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li> 
+                        </ul>
+                    </div>
+                </div>
+                <div><strong>Instructions:</strong> {{recipe.details}}</div>
+                <div>
+                    <iframe width="560" height="315" src='https://www.youtube.com/embed/Oh2ZYK_KEAU' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcolumn bg-success">
+            <h2>Popular recipes</h2>
+            <div class="card bg-success" *ngFor="let recipe of recipes" >
+               
+                <div class="card bg-light mb-3">
+                    <h5 class="card-title"><strong> {{recipe.name}}</strong></h5>
+                    <div class="card-img-top">
+                        <img class="" width="250" height="100" src='{{recipe.imageURL}}' alt="image">
+                    </div>
+                    <div class="card-body">
+                        <h6><strong>Prep:</strong> {{recipe.prep}}</h6>
+                        <h6><strong>Cook:</strong> {{recipe.cook}}</h6>
+                        <h6><strong>Total:</strong> {{recipe.total}}</h6>
+                        <h6><strong>Additional:</strong> {{recipe.additional}}</h6>
+                        <h6><strong>Servings:</strong> {{recipe.servings}}</h6>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary float-right" [routerLink]="['/recipe', recipe.id]">View recipe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,134 @@
+<div class="container">
+    <h1>Add new recipe </h1>
+    <hr>
+    <div class="col-md-6">
+        <form [formGroup]="recipeForm" (ngSubmit)="saveRecipe()" autocomplete="off" novalidate>
+            <div class="form-group">
+                <label class="col-md-8 col-form-label" for="recipeName">Recipe Name: </label>
+                <div class="col-md-8">
+                    <input class="form-control" id="recipeName" type="text" formControlName="recipeName"
+                        placeholder="Recipe Name..." required />
+                    <span class="invalid-feedback">
+                        {{ recipeMessage }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-8 col-form-label" for="category">Category: </label>
+                 <!--<div class="col-md-8">
+                    <input class="form-control" id="category" type="dropdown" formControlName="category"
+                        placeholder="Category..." />
+                </div> -->
+
+                <div class="input-group col-md-8 mb-3" id="category" type="dropdown" >
+                    <select class="custom-select" id="inputGroupSelect01" formControlName="category">
+                        <option selected>Choose...</option>
+                        <option value="1">Breakfast</option>
+                        <option value="2">Lunch</option>
+                        <option value="3">Dinner</option>
+                        <option value="4">Snacks</option>
+                        <option value="5">Cakes</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-8 col-form-label" for="cookingTime">CookingTime: </label>
+                <!-- <div class="col-md-8">
+                    <input class="form-control" id="cookingTime" type="text" formControlName="cookingTime"
+                        placeholder="CookingTime..." />
+                </div> -->
+                <div class="row input-group">
+                    <div class=" col-md-3 mb-3 " style="margin-left: 15px; width: 100px;">
+                        <select class="custom-select " id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="1">6</option>
+                            <option value="2">7</option>
+                            <option value="3">8</option>
+                            <option value="4">9</option>
+                            <option value="5">10</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group-append ">
+                            <label class="input-group-text" for="inputGroupSelect02">Hours</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">5</option>
+                            <option value="1">10</option>
+                            <option value="2">15</option>
+                            <option value="3">20</option>
+                            <option value="4">25</option>
+                            <option value="5">30</option>
+                            <option value="1">35</option>
+                            <option value="2">40</option>
+                            <option value="3">45</option>
+                            <option value="4">50</option>
+                            <option value="5">55</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="input-group-append ">
+                            <label class="input-group-text" for="inputGroupSelect02">Minutes</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-8 col-form-label" for="ingredients">Ingredients: </label>
+                <div class="col-md-8">
+                    <input class="form-control" id="ingredients" type="text" formControlName="ingredients"
+                        placeholder="Ingredients..." />
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- <label class="col-md-8 col-form-label" for="preparationMode">Preparation Mode: </label> -->
+                <!-- <div class="col-md-8">
+                    <input class="form-control" id="preparationMode" type="text" formControlName="preparationMode"
+                        placeholder="Preparation Mode..." />
+                </div> -->
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Preparation Mode</span>
+                </div>
+                  <textarea class="form-control" aria-label="Preparation Mode" id="preparationMode" type="text" formControlName="preparationMode"></textarea>
+            </div>
+
+            <!-- <div class="form-group">
+                <label class="col-md-8 col-form-label" for="range">Dificulty: </label>
+                <div class="col-md-8">
+                    <input class="form-control" id="range" type="number" formControlName="range"
+                        placeholder="Dificulty..."
+                        [ngClass]="{'is-invalid': (recipeForm.get('range').touched || recipeForm.get('range').dirty && !recipeForm.get('range').valid )}" />
+                    <span class="invalid-feedback">
+                        <span *ngIf="recipeForm.get('range').errors?.range"> Please rate your experience from 1 to 5.
+                        </span>
+                    </span> -->
+                <!-- </div>
+            </div> --> 
+
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Example file input</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              </div>
+
+
+            <button type="submit" class="btn btn-primary"
+                [title]="recipeForm.valid? 'Save your entered data' : 'Disabled until the form data is valid'"
+                [disabled]="recipeForm.invalid">Save</button>
+            <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+        </form>
+    </div>
+</div>
