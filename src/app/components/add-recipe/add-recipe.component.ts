@@ -13,23 +13,23 @@ export class AddRecipeComponent implements OnInit {
   recipeForm: FormGroup;
   recipeMessage: string;
 
-  private validationMessages = { required: 'Please enter a name.' };
+  //private validationMessages = { required: 'Please enter a name.' };
   constructor(private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.recipeForm = this.fb.group({
       recipeName: ['', Validators.required],
-      category: ['', Validators.required],
+      category: '',
       cookingTime: '',
       ingredients: ['', Validators.required],
       preparationMode: ['', Validators.required],
-      range: [null, NumberValidators.range(1, 5)]
+      range: ''
     });
 
     const recipeControl = this.recipeForm.get('recipeName');
-    recipeControl.valueChanges.subscribe(
-      value => this.setMessage(recipeControl)
-    );
+    // recipeControl.valueChanges.subscribe(
+    //   value => this.setMessage(recipeControl)
+    // );
   }
   cancel() {
     this.router.navigate(['home']);
@@ -40,17 +40,5 @@ export class AddRecipeComponent implements OnInit {
       console.log('Saved: ' + JSON.stringify(this.recipeForm.value));
     }
   }
-  setMessage(c: AbstractControl): void {
-    this.recipeMessage = '';
-    if ((c.touched || c.dirty) && c.errors) {
-      this.recipeMessage = Object.keys(c.errors).map(
-        key => this.validationMessages[key]).join(' ');
-    }
-  }
-
-  // SelectItem(filterVal: any) {
-  //   var id = filterVal;
-  //   let items = ['breakfast', 'lunch']
-  // }
-
+ 
 }

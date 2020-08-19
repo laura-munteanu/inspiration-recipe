@@ -4,3 +4,4 @@ export * from './home/home.component';
 export * from './recipe-thumbnail/recipe-thumbnail.component';
 export * from './recipe-details/recipe-details.component';
 export * from './add-recipe/add-recipe.component';
+export * from './contact-form/contact-form.component';

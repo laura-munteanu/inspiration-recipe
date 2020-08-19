@@ -5,6 +5,7 @@ import{
   HomeComponent,
   RecipeDetailsComponent,
   AddRecipeComponent,
+  ContactFormComponent,
 } from './components/index';
 
 const routes: Routes = [
@@ -19,6 +20,9 @@ const routes: Routes = [
   },
   {
     path: 'add-recipe', component: AddRecipeComponent
+  },
+  {
+    path: 'contact', component: ContactFormComponent
   },
  {
    path: '', redirectTo: '/home', pathMatch: 'full'

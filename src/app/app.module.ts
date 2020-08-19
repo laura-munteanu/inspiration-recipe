@@ -4,7 +4,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {  InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { NumberValidators } from './components/shared/number-validator';        
 import { RecipeData } from './components/recipe-data';
@@ -19,7 +19,8 @@ import {
   HomeComponent,
   RecipeThumbnailComponent,
   RecipeDetailsComponent,
-  AddRecipeComponent
+  AddRecipeComponent,
+  ContactFormComponent,
 
 } from './components/index';
 
@@ -33,6 +34,7 @@ import {
     RecipeThumbnailComponent,
     RecipeDetailsComponent,
     AddRecipeComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,

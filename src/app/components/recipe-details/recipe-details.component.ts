@@ -16,6 +16,7 @@ export class RecipeDetailsComponent implements OnInit {
   constructor(private recipeService: RecipeService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.recipe = <Recipe>{};
     this.route.paramMap.subscribe(params => {
       let id = +params.get('id');
       this.recipeService.getRecipe(id).subscribe(
@@ -27,7 +28,7 @@ export class RecipeDetailsComponent implements OnInit {
 
    this.recipeService.getRecipes().subscribe(
     response => {
-      this.recipes=response;
+      this.recipes=response.slice(0, 3);
     }
   );
     }
